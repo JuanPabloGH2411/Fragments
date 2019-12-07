@@ -1,9 +1,13 @@
 package com.sicoss.mfragments
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import es.dmoral.toasty.Toasty
+import kotlinx.android.synthetic.main.activity_main.*
+
+const val DETAIL_PARAM="detail-param"
 
 class MainActivity : AppCompatActivity(),DiscountEventListener {
 
@@ -16,6 +20,16 @@ class MainActivity : AppCompatActivity(),DiscountEventListener {
             .commit()
 
         //Toast.makeText(this,"Bienvenido",Toast.LENGTH_LONG).show()
+
+
+        btnDetail.setOnClickListener{
+
+            val intent= Intent(this,DetailActivity::class.java)
+            intent.putExtra(DETAIL_PARAM,"From Discount")
+            startActivity(intent)
+        }
+
+
 
     }
 
